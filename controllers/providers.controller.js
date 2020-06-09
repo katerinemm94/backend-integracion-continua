@@ -51,7 +51,7 @@ createProvider = (req, res) => {
         name: req.body.name,
         city: req.body.city,
         country: req.body.country,
-        whatsapp: req.body.weChatCode,
+        whatsapp: req.body.whatsapp,
         telephone: req.body.telephone,
         notes: req.body.notes,
         primaryPhotoURL: req.body.primaryPhotoURL,
@@ -160,7 +160,7 @@ updateProvider = (req, res) => {
                 name: req.body.name,
                 city: req.body.city,
                 country: req.body.country,
-                whatsapp: req.body.weChatCode,
+                whatsapp: req.body.whatsapp,
                 telephone: req.body.telephone,
                 notes: req.body.notes
             })
