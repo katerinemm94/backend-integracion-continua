@@ -1,0 +1,65 @@
+{
+    "development": {
+        "username": "admin",
+        "password": "admin123",
+        "database": "db_integracion_continua",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "timezone": "America/Bogota",
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
+        },
+        "define": {
+            "charset": "utf8",
+            "dialectOptions": {
+                "collate": "utf8_general_ci"
+            },
+            "timestamps": true
+        }
+    },
+    "test": {
+        "username": "admin",
+        "password": "admin123",
+        "database": "db_integracion_continua",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "timezone": "America/Bogota",
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
+        },
+        "define": {
+            "charset": "utf8",
+            "dialectOptions": {
+                "collate": "utf8_general_ci"
+            },
+            "timestamps": true
+        }
+    },
+    "production": {
+        "username": "admin",
+        "password": "admin123",
+        "database": "db_integracion_continua",
+        "host": "127.0.0.1",
+        "dialect": "postgres",
+        "timezone": "America/Bogota",
+        "pool": {
+            "max": 5,
+            "min": 0,
+            "acquire": 30000,
+            "idle": 10000
+        },
+        "define": {
+            "charset": "utf8",
+            "dialectOptions": {
+                "collate": "utf8_general_ci"
+            },
+            "timestamps": true
+        }
+    }
+}
