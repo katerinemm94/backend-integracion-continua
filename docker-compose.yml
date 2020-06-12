@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+#Instalación de proyecto
+  appserver:
+    build: .
+    container_name: servidor_integracion_continua_katerine
+    restart: always
+    ports:
+      - 80:8000
+    entrypoint: ["/bin/bash", "./entrypoint.sh"]
+    environment:
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_USER: admin
+      POSTGRES_DB: db_integracion_continua
+    volumes:
+      - .:/usr/src/app/
+    depends_on:
+      - appdb
+  #Instalación de base de datos con timeout de espera para evitar colisión con servidor
+  appdb:
+    container_name: db_integracion_continua_katerine
+    image: "postgres:alpine"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgData:/var/lib/psotgresql/data
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: db_integracion_continua

@@ -3,7 +3,7 @@
         "username": "admin",
         "password": "admin123",
         "database": "db_integracion_continua",
-        "host": "127.0.0.1",
+        "host": "db_integracion_continua_katerine",
         "dialect": "postgres",
         "timezone": "America/Bogota",
         "pool": {
@@ -24,7 +24,7 @@
         "username": "admin",
         "password": "admin123",
         "database": "db_integracion_continua",
-        "host": "127.0.0.1",
+        "host": "db_integracion_continua_katerine",
         "dialect": "postgres",
         "timezone": "America/Bogota",
         "pool": {
@@ -45,7 +45,7 @@
         "username": "admin",
         "password": "admin123",
         "database": "db_integracion_continua",
-        "host": "127.0.0.1",
+        "host": "db_integracion_continua_katerine",
         "dialect": "postgres",
         "timezone": "America/Bogota",
         "pool": {
