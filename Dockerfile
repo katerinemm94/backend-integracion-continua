@@ -11,10 +11,8 @@ COPY . /usr/src/app
 # RUN npx sequelize db:migrate --env production
 # RUN npx sequelize db:seed:all --env production
 
-RUN rm -rf node_modules/sharp
-RUN npm install --arch=x64 --platform=linux sharp
-RUN npx sequelize db:migrate --env production
-RUN npx sequelize db:seed:all --env production
+COPY        start.sh /
+ENTRYPOINT  ["/entrypoint.sh"]
 
 EXPOSE 8000
 
