@@ -3,7 +3,7 @@ node {
   git url: 'https://github.com/katerinemm94/backend-integracion-continua.git'
 
   stage 'Compilar'
-  docker.build('appserver')
+  docker.build('.')
 
   stage 'Depurar'
   sh './deploy.sh'
