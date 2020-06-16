@@ -11,7 +11,7 @@ COPY . /usr/src/app
 # RUN npx sequelize db:migrate --env production
 # RUN npx sequelize db:seed:all --env production
 
-COPY        start.sh /
+COPY        entrypoint.sh /
 ENTRYPOINT  ["/entrypoint.sh"]
 
 EXPOSE 8000
