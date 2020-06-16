@@ -9,4 +9,8 @@ node {
   sh '''chmod a+x ./deploy.sh
 ./deploy.sh'''
 
+stage 'Migrar y levantar'
+  sh '''chmod a+x ./entrypoint.sh
+./entrypoint.sh'''
+
 }
