@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npx sequelize db:migrate --env production && npx sequelize db:seed:all --env production",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "testing": "pm2-runtime start ecosystem.config.js --env test",
     "dev": "pm2-runtime start ecosystem.config.js --env --watch"
