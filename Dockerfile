@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN ['/bin/bash' './entrypoint.sh']
+RUN 'entrypoint.sh'
 
 # RUN npm i --g sequelize-cli pm2
 # RUN npm i
