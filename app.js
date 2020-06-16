@@ -45,7 +45,7 @@ require('./routes')(app);
 
 // Configurar una ruta predeterminada que devuelva un mensaje de bienvenida en formato JSON.
 app.get('*', (req, res) => res.status(200).send({
-    message: 'Bienvenido al api del backend para la materia de integración continua por katerine martinez',
+    message: 'Bienvenido al api del backend para la materia de integración continua por Katerine Martinez Muñoz',
 }));
 const port = parseInt(process.env.PORT, 10) || 8000;
 app.set('port', port);
