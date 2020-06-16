@@ -1,16 +1,10 @@
 FROM node:12.18.0
 LABEL maintainer "katerinemm94@gamil.com"
-
 RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY . /usr/src/app
-
-RUN npm i --g sequelize-cli pm2
-RUN npm i
-# RUN npx sequelize db:migrate --env production
-# RUN npx sequelize db:seed:all --env production
-
+WORKDIR /user/src/app
+COPY package.json ./
+RUN npm install
+RUN npm install -g pm2 sequelize-cli
+COPY . .
 EXPOSE 8000
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
