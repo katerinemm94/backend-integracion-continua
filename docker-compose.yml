@@ -14,6 +14,8 @@ services:
       POSTGRES_DB: db_integracion_continua
     volumes:
       - .:/usr/src/app/
+    networks:
+      - katerine_net
     depends_on:
       - appdb
   #Instalación de base de datos con timeout de espera para evitar colisión con servidor
@@ -24,7 +26,12 @@ services:
       - "5432:5432"
     volumes:
       - ./pgData:/var/lib/psotgresql/data
+    networks:
+      - katerine_net
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin123
       POSTGRES_DB: db_integracion_continua
+networks:
+  katerine_net:
+    driver: bridge
