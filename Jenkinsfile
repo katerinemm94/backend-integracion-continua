@@ -6,5 +6,6 @@ node {
   docker.build('integracion_continua_katerine')
 
   stage 'Depurar'
-  sh './deploy.sh'
+  sh 'chmod a+x ./deploy.sh'
+
 }
