@@ -2,8 +2,8 @@ version: '3'
 services:
 #Instalación de proyecto
   appserver:
-    build: .
     container_name: servidor_integracion_continua_katerine
+    image: "katerinemm94/back:latest"
     restart: always
     ports:
       - 80:8000
