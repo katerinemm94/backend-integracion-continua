@@ -7,4 +7,6 @@ RUN npm install
 RUN npm install -g pm2 sequelize-cli
 COPY . .
 EXPOSE 8000
-CMD ["npm", "run", "start"]
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod a+x /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
