@@ -3,7 +3,7 @@
         "username": "admin",
         "password": "admin123",
         "database": "db_integracion_continua",
-        "host": "db_integracion_continua_katerine",
+        "host": "localhost",
         "dialect": "postgres",
         "timezone": "America/Bogota",
         "pool": {
@@ -42,10 +42,11 @@
         }
     },
     "production": {
-        "username": "admin",
-        "password": "admin123",
-        "database": "db_integracion_continua",
-        "host": "db_integracion_continua_katerine",
+        "username": "iahgsyriynhxfe",
+        "password": "58c0c1020f2468578f861645f44089ebfa6161dbf8492dbfd2663015a9e656ac",
+        "database": "df0suk7kfgffhf",
+        "host": "ec2-52-200-48-116.compute-1.amazonaws.com",
+        "port": 5432,
         "dialect": "postgres",
         "timezone": "America/Bogota",
         "pool": {
@@ -60,6 +61,7 @@
                 "collate": "utf8_general_ci"
             },
             "timestamps": true
-        }
+        },
+        "ssl": true
     }
 }

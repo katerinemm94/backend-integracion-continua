@@ -7,6 +7,11 @@ cache:
 sudo: required
 services:
   - docker
+before_install:
+  # install heroku CLI
+  - wget -qO- https://toolbelt.heroku.com/install.sh | sh
+  # login to docker registries (heroku)
+  - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 before_script:
   - npm install
 script:
@@ -18,3 +23,6 @@ after_success:
   - docker push $DOCKER_USER/back:$TRAVIS_BUILD_NUMBER
   - docker tag back $DOCKER_USER/back:latest
   - docker push $DOCKER_USER/back:latest
+  - docker tag back registry.heroku.com/$HEROKU_APP_NAME/web
+  - docker push registry.heroku.com/$HEROKU_APP_NAME/web
+  - heroku container:release web --app $HEROKU_APP_NAME
