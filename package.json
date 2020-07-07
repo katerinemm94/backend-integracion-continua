@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --reporter spec",
     "prestart": "sequelize db:migrate --env production && sequelize db:seed:all --env production",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "testing": "pm2-runtime start ecosystem.config.js --env test",
@@ -33,6 +34,8 @@
     "uuid": "^3.3.3"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
     "nodemon": "^1.18.10"
   }
 }

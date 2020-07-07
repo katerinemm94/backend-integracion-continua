@@ -73,6 +73,40 @@ createProduct = (req, res) => {
   }));
 };
 
+createProduct2 = (req) => {
+  return Product.create({
+    code: req.body.code,
+    description: req.body.description,
+    unitPrice: req.body.unitPrice,
+    boxPrice: req.body.boxPrice,
+    quantityPerBox: req.body.quantityPerBox,
+    packagingType: req.body.packagingType,
+    numberModels: req.body.numberModels,
+    notes: req.body.notes,
+    primaryPhotoURL: req.body.primaryPhotoURL,
+    thumbnailPhotoUrl: req.body.thumbnailPhotoUrl,
+    status: true
+  }).then(product => {
+    return {
+      data: product,
+      message: "Producto registrado correctamente!",
+      response: true,
+      errors: null
+    };
+  }).catch(err => {
+    return {
+      message: 'Ocurrió un error al registrar el producto',
+      data: null,
+      response: false,
+      errors: {
+        message: err.message
+      }
+    };
+  });
+};
+
+
+
 findProductByID = (req, res) => {
 
   Product.findByPk(req.params.productId).then(product => {
@@ -360,6 +394,7 @@ module.exports = {
   allProducts,
   allProductsByStatus,
   createProduct,
+  createProduct2,
   findProductByID,
   findProductByCode,
   updateProduct,
