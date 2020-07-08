@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  # Versión con la cual se trabajara en node
   - "12.18.0"
 cache:
   directories:
@@ -8,21 +9,29 @@ sudo: required
 services:
   - docker
 before_install:
-  # install heroku CLI
+  # Instalar heroku CLI
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
-  # login to docker registries (heroku)
+  # Login con docker para el registry de heroku
   - echo "$HEROKU_PASSWORD" | docker login -u "$HEROKU_USERNAME" --password-stdin registry.heroku.com
 before_script:
+  # Instalar las dependencias
   - npm install
 script:
+  # Correr las pruebas
   - npm run test
+  # Compilar la imagen basados en el Dockerfile
   - docker build -t back .
 after_success:
+  # Login para dockerhub con usuario y contraseña
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  # Tag y subida de la imagen a dockerhub con el número de compilación de travis
   - docker tag back $DOCKER_USER/back:$TRAVIS_BUILD_NUMBER
   - docker push $DOCKER_USER/back:$TRAVIS_BUILD_NUMBER
+  # Tag y subida de la imagen a dockerhub con indicando la ultima versión disponible
   - docker tag back $DOCKER_USER/back:latest
   - docker push $DOCKER_USER/back:latest
+  # Tag y subida de la imagen a registry de heroku
   - docker tag back registry.heroku.com/$HEROKU_APP_NAME/web
   - docker push registry.heroku.com/$HEROKU_APP_NAME/web
+  # Ejecutar comando de release de heroku para despligue de la app
   - heroku container:release web --app $HEROKU_APP_NAME
